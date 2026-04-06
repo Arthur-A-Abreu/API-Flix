@@ -29,4 +29,7 @@ class Actor(models.Model):
                                     choices=NATIONALITY_CHOICES, 
                                     null=True,
                                     blank=True)
+    
+    def __str__(self):
+        return self.name
 
