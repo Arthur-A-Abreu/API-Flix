@@ -3,10 +3,10 @@ from movies.models import Movie
 from movies.serializers import MovieSerializer
 
 
-class MovieList(generics.ListCreateAPIView):
+class MovieCreateListView(generics.ListCreateAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
-class MovieDetail(generics.RetrieveUpdateDestroyAPIView):
+class MovieDetailListView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
