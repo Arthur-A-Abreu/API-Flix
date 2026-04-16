@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from genres.views import GenreCreateListView, GenreDetailListView
 from actors.views import ActorCreateListView, ActorDetailListView 
 from movies.views import MovieCreateListView, MovieDetailListView
+from reviews.views import ReviewCreateListView, ReviewDetailListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,4 +18,7 @@ urlpatterns = [
     # Movie URLs
     path('movies/', MovieCreateListView.as_view(), name='movie-list'),
     path('movies/<int:pk>/', MovieDetailListView.as_view(), name='movie-detail'),
+    # Review URLs
+    path('reviews/', ReviewCreateListView.as_view(), name='review-list'),
+    path('reviews/<int:pk>/', ReviewDetailListView.as_view(), name='review-detail'),
 ]
