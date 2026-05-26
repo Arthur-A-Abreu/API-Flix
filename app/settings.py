@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
 
-    'autenticaton',
+    'authentication',
     'genres',
     'actors',
     'movies',
