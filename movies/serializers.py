@@ -2,6 +2,7 @@ from django.db.models import Avg
 from rest_framework import serializers
 from movies.models import Movie
 
+
 class MovieSerializer(serializers.ModelSerializer):
     rate = serializers.SerializerMethodField(read_only=True)
 
@@ -14,19 +15,17 @@ class MovieSerializer(serializers.ModelSerializer):
 
         if rate:
             return round(rate, 1)
-        
+
         return None
 
-    def validate_release_date(self,value):
+    def validate_release_date(self, value):
         if value.year < 1900:
             raise serializers.ValidationError("A data de lançamento não pode ser anterior a 1990.")
         return value
-    
+
     def validate_resume(self, value):
         if len(value) > 500:
             raise serializers.ValidationError("O resumo não pode exceder 200 caracteres.")
         elif len(value) < 10:
             raise serializers.ValidationError("O resumo deve conter pelo menos 10 caracteres.")
         return value
-        
-

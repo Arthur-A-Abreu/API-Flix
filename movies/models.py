@@ -2,6 +2,7 @@ from django.db import models
 from genres.models import Genre
 from actors.models import Actor
 
+
 class Movie(models.Model):
     title = models.CharField(max_length=405)
     release_date = models.DateField(null=True, blank=True)
@@ -9,7 +10,7 @@ class Movie(models.Model):
         Genre,
         on_delete=models.PROTECT,
         related_name='movies'
-        )
+    )
     director = models.CharField(max_length=100)
     actors = models.ManyToManyField(Actor, related_name='movies')
     resume = models.TextField(null=True, blank=True)
